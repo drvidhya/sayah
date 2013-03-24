@@ -28,6 +28,7 @@ var app = {
 			x: canvas.attr('width') / canvas.width(),
 			y: canvas.attr('height') / canvas.height()
 		}
+		div.children('canvas').css('left', (document.width/2- canvas.width()/2) );
 		return ratio;
 	},
 
@@ -47,12 +48,12 @@ var app = {
 		ctx.fillStyle = "#f30";
 		for (var i = 0; i < t.length; i++) {
 			ctx.beginPath();
-			ctx.arc((t[i].clientX) * ratio.x, t[i].clientY * ratio.y, 35, 0, Math.PI * 2, true);
+			ctx.arc((t[i].clientX - parseInt(this.style.left,10)) * ratio.x, t[i].clientY * ratio.y, 35, 0, Math.PI * 2, true);
 			ctx.fill();
 
 			rec.beginPath();
 			rec.fillStyle = "rgba(165,0,255,0.3)";
-			rec.arc((t[i].clientX) * ratio.x, t[i].clientY * ratio.y, 15, 0, Math.PI * 2, true);
+			rec.arc((t[i].clientX - parseInt(this.style.left,10)) * ratio.x, t[i].clientY * ratio.y, 35, 0, Math.PI * 2, true);
 			rec.fill();
 		}
 	},
@@ -84,5 +85,5 @@ var app = {
 };
 
 $('.confetti div').on('click', function(){
-	window.location = '/index.html';
+	window.location = '/index.html#list';
 });

@@ -15,6 +15,7 @@ function init() {
 }
 
 function done() {
+	document.getElementById("win").play();
 	$('.confetti').fadeIn();
 }
 
@@ -26,17 +27,15 @@ function drawStep(num) {
 	app.setEvents('plaque', brush);
 }
 
-var bubble = $('#bubble');
+
+var max = $("#teeth").height() / 4;
+var ouch = document.getElementById("ouch");
 
 function brush(e) {
+	if (e.touches[0].clientY < max && parseInt(Math.random() * 100 % 30) === 2) {
+		ouch.play();
+	} 
 	app.eraseImage.apply(this, arguments);
-	var t = e.touches;
-	var ctx = this.getContext('2d');
-	ctx.fillStyle = "#f30";
-	bubble.css({
-		'top': e.touches[0].clientY - 50,
-		'left': e.touches[0].clientX - 60
-	});
 }
 
 init();
