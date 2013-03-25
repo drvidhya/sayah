@@ -85,5 +85,5 @@ var app = {
 };
 
 $('.confetti div').on('click', function(){
-	window.location = '/index.html#list';
+	window.location = '../../index.html#list';
 });

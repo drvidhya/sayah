@@ -20,9 +20,9 @@ function done() {
 }
 
 function drawStep(num) {
-	app.setImage('teeth', '/img/teeth' + num + '.png');
-	app.setImage('plaque', '/img/teeth' + num + '-plaque.png');
-	app.setImage('food', '/img/teeth' + num + '-food.png');
+	app.setImage('teeth', '../../img/teeth' + num + '.png');
+	app.setImage('plaque', '../../img/teeth' + num + '-plaque.png');
+	app.setImage('food', '../../img/teeth' + num + '-food.png');
 	app.setEvents('food', brush);
 	app.setEvents('plaque', brush);
 }

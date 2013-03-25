@@ -9,11 +9,11 @@ function init() {
 }
 
 function drawStep(num) {
-	app.setImage('teeth', '/img/teeth2.png');
-	app.setImage('decay', '/img/teeth2-decay.png');
-	app.setImage('hole', '/img/teeth2-hole.png');
-	app.setImage('fill', '/img/teeth2-fill.png');
-	app.setImage('light', '/img/teeth2-light.png');
+	app.setImage('teeth', '../../img/teeth2.png');
+	app.setImage('decay', '../../img/teeth2-decay.png');
+	app.setImage('hole', '../../img/teeth2-hole.png');
+	app.setImage('fill', '../../img/teeth2-fill.png');
+	app.setImage('light', '../../img/teeth2-light.png');
 
 	$('#fill').hide();
 	$('#light').hide();
@@ -21,15 +21,21 @@ function drawStep(num) {
 	app.testImage('decay', 6000, function() {
 		$('#fill').show();
 		$('#decay').fadeOut();
+		$("#help1").hide();
+		$("#help2").show();
 
 		function eraseHole() {
 			app.setEvents('hole', app.eraseImage);
 			app.testImage('hole', 6000, function() {
 				$('#light').show().css('opacity', 0.1);
 				$('#pot').hide();
+				$("#help3").show();
+				$("#help2").hide();
 				getLight(500, function(light) {
 					if (light === null) {
 						$('#hole, #decal, #fill, #light').hide();
+						$("#help3").hide();
+						$("#help4").show();
 						done();
 					} else {
 						console.log(light / 2000);

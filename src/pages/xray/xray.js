@@ -1,7 +1,7 @@
 function init() {
 	ratio = app.allCanvasToFS('.xray');
 	var handle = false;
-	app.setImage('teeth', '/img/teeth3.png');
+	app.setImage('teeth', '../../img/teeth3.png');
 
 	document.getElementById("teeth").addEventListener('click', function(e) {
 		e.preventDefault();
