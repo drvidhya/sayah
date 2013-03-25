@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Say-Ah : Brushing your teeth</title>
+	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap-responsive.css"/>
+	<link rel="stylesheet" type="text/css" href="../../main.css"/>
+</head>
+<body>
+	<div class = "brushing holder">
+		<canvas id = "teeth" width = '1260' height = '810'></canvas>
+		<canvas id = "plaque" width = '1260' height = '810'></canvas>
+		<canvas id = "food" width = '1260' height = '810'></canvas>
+		<canvas id = "record" class = "hide" width = '1260' height = '810'></canvas>
+	</div>
+	<div class = "confetti hide">
+		<div class = "modal">
+			<span>Yay !! Good Job !!</span>
+			<br/>
+			<a class = "xray-button">Other Activities</a>
+		</div>
+	</div>
+	<audio id = "ouch">
+		<source src="../../img/ouch.wav"/>
+	</audio>
+	<audio id = "win">
+		<source src="../../img/win.mp3"/>
+	</audio>
+	<script type="text/javascript" src = "../../lib/jquery.min.js"></script>
+	<script type="text/javascript" src = "../../app.js"></script>
+	<script type="text/javascript" src = "brushing.js"></script>
+</body>
