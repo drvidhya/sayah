@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Say-ah</title>
+	<link href="../../lib/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+	<style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      input[type=checkbox]{
+      	margin: -3px 10px 0 0;
+      }
+
+      	.tab li{
+      		margin-left: 40px;
+      	}
+      }
+    </style>
+	<link href="../../lib/bootstrap/css/bootstrap-responsive.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="admin.css"></head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#">Say Ah</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li class="active">
+							<a href="../../index.html">Home</a>
+						</li>
+						<li>
+							<a href="#about">About</a>
+						</li>
+						<li>
+							<a href="#contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class = "hero">
+			<h1></h1>
+		</div>
+		<div class = "row">
+			<div class = "span3">
+				<ul class="nav nav-list bs-docs-sidenav affix">
+					<li>
+						<a><i class="icon-chevron-right"></i>
+							My Touchscreen Computer
+						</a>
+					</li>
+					<li>
+						<a href="#code"> <i class="icon-chevron-right"></i>
+							iPad
+						</a>
+					</li>
+					<li>
+						<a href="#code"> <i class="icon-chevron-right"></i>
+							Mom's iPad
+						</a>
+					</li>
+					<li>
+						<a href="#code"> <i class="icon-chevron-right"></i>
+							Dad's Surface
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class = "span9">
+				<div class="accordion" id="accordion2">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne1">General Configuration</a>
+						</div>
+						<div id="collapseOne1" class="accordion-body collapse" style="height: 0px;">
+							<div class="accordion-inner">
+								<form class="form-horizontal">
+									<div class="control-group">
+										<label class="control-label" for="inputEmail">Child's name</label>
+										<div class="controls">
+											<input type="text" id="inputEmail" placeholder="Name or nickname"></div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="inputPassword">Age</label>
+										<div class="controls">
+											<input type="password" id="inputPassword" placeholder="Age"></div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+								<input type = "checkbox" checked>Brushing</a>
+						</div>
+						<div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+							<div class="accordion-inner">
+								<ul class = "unstyled tab">
+									<li>
+										<input type = 'checkbox'/>
+										Sounds
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										Accurate placement
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										Timed (Required to brush everyday)
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										Record actions ( View Recordings - 
+										<a href = "recording.html#teeth1&amp;Brushing-Food" target = "_blank">Food</a>,
+										<a href = "recording.html#teeth1&amp;Brushing-Plaque"  target = "_blank">Plaque</a>
+										)
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										Text instructions
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+								<input type = "checkbox" checked>Filling</a>
+						</div>
+						<div id="collapseTwo" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<ul class = "unstyled tab">
+									<li>
+										<input type = 'checkbox'/>
+										Sounds
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										Light Control
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										Text instructions
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										All steps
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo1">
+								<input type = "checkbox" checked>X Ray</a>
+						</div>
+						<div id="collapseTwo1" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<ul class = "unstyled tab">
+									<li>
+										<input type = 'checkbox'/>
+										Sounds
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										Enable Foil Xray toy
+									</li>
+									<li>
+										<input type = 'checkbox'/>
+										Text instructions
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" >
+								<input type = "checkbox">Cleaning</a>
+						</div>
+
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" >
+								<input type = "checkbox">Braces</a>
+						</div>
+
+					</div>
+
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" >
+								<input type = "checkbox">Extraction</a>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" >
+								<input type = "checkbox">Fluorides</a>
+						</div>
+
+					</div>
+
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" >
+								<input type = "checkbox">Social Story</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src = "../../lib/jquery.min.js"></script>
+	<script type="text/javascript" src = "../../lib/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
