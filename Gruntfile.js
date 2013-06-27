@@ -6,8 +6,9 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
+          hostname: '0.0.0.0',
           port: 8080,
-          base: "."
+          base: "dist"
         }
       }
     },
@@ -15,38 +16,41 @@ module.exports = function(grunt) {
     copy: {
       pages: {
         files: [{
-          expand: true,
-          cwd: 'src/',
-          src: ['**/*.html', '**/*.js', '**/*.css'],
-          dest: 'dist/'
-        }]
+            expand: true,
+            cwd: 'src/',
+            src: ['**/*.html', '**/*.js', '**/*.css'],
+            dest: 'dist/'
+          }
+        ]
       },
       img: {
         files: [{
-          expand: true,
-          cwd: 'src/img/',
-          src: '**',
-          dest: 'dist/img/'
-        }]
+            expand: true,
+            cwd: 'src/img/',
+            src: '**',
+            dest: 'dist/img/'
+          }
+        ]
       },
       lib: {
         files: [{
-          expand: true,
-          cwd: 'lib/',
-          src: '**',
-          dest: 'dist/lib/'
-        }]
+            expand: true,
+            cwd: 'lib/',
+            src: '**',
+            dest: 'dist/lib/'
+          }
+        ]
       }
     },
 
     watch: {
+      less: {
+        tasks: ['less'],
+        files: ['src/**/*.less']
+      },
       pages: {
         tasks: ['copy:pages'],
         files: ['src/**/*.html', 'src/**/*.js']
-      },
-      css: {
-        tasks: ['less'],
-        files: ['src/*.less']
       },
       img: {
         tasks: ['copy:img'],
@@ -59,11 +63,14 @@ module.exports = function(grunt) {
     },
 
     less: {
-      development: {
-        files: {
-          "dist/main.css": "src/main.less"
-        }
+      options: {
+        concat: true
+      },
+      main: {
+        src: 'src/**/*.less',
+        dest: 'dist/main.css'
       }
+
     },
     clean: {
       dist: ['dist']
@@ -73,7 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task(s).

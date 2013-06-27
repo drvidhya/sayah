@@ -1,67 +1,54 @@
-var ratio;
-navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.getUserMedia;
-window.URL = window.URL || window.webkitURL;
-
-function init() {
-	ratio = app.allCanvasToFS('.filling');
-	drawStep();
-
-}
-
-function drawStep(num) {
+(function() {
+	app.allCanvasToFS('.filling');
 	app.setImage('teeth', '../../img/teeth2.png');
 	app.setImage('decay', '../../img/teeth2-decay.png');
 	app.setImage('hole', '../../img/teeth2-hole.png');
 	app.setImage('fill', '../../img/teeth2-fill.png');
 	app.setImage('light', '../../img/teeth2-light.png');
 
-	$('#fill').hide();
-	$('#light').hide();
-	app.setEvents('decay', app.eraseImage);
+	var helpCount = 1;
+	app.help(helpCount++);
+	app.setEvents('decay', app.eraseImage('decay'));
 	app.testImage('decay', 6000, function() {
+		app.help(helpCount++);
 		$('#fill').show();
 		$('#decay').fadeOut();
-		$("#help1").hide();
-		$("#help2").show();
-
-		function eraseHole() {
-			app.setEvents('hole', app.eraseImage);
+		$('#pot').show().addClass('pulsate').on('click', function() {
+			app.help(helpCount++);
+			app.setEvents('hole', app.eraseImage('hole'));
 			app.testImage('hole', 6000, function() {
-				$('#light').show().css('opacity', 0.1);
+				app.help(helpCount++);
 				$('#pot').hide();
-				$("#help3").show();
-				$("#help2").hide();
+				$('#light').show().css('opacity', 0.1);
 				getLight(500, function(light) {
 					if (light === null) {
 						$('#hole, #decal, #fill, #light').hide();
-						$("#help3").hide();
-						$("#help4").show();
-						done();
+						app.help(helpCount);
+						app.activityDone();
 					} else {
 						console.log(light / 2000);
 						$('#light').css('opacity', light / 2000);
 					}
 				});
 			});
-		}
+		});
+	});
 
-		$('#pot').show().addClass('pulsate').on('touchstart', eraseHole);
+	navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.getUserMedia;
+	window.URL = window.URL || window.webkitURL;
+	var checkCamera;
+	navigator.getUserMedia({
+		video: true
+	}, function() {
+		if (typeof checkCamera === 'function') {
+			cameraTest(stream, checkCamera)
+		}
+	}, function() {
 
 	});
-}
 
-function done(){
-	$('.confetti').show();
-}
-
-var localStream;
-
-function getLight(threshold, cb) {
-	var video = document.getElementById('monitor');
-	var canvas = document.getElementById('lightMonitor');
-	var ctx = canvas.getContext('2d');
-
-	function checkLight(stream) {
+	function cameraTest(stream, cb) {
+		video.src = window.URL ? window.URL.createObjectURL(stream) : stream
 		var handle = window.setInterval(function() {
 			canvas.width = video.videoWidth;
 			canvas.height = video.videoHeight;
@@ -74,7 +61,7 @@ function getLight(threshold, cb) {
 					sum++;
 				}
 			}
-			cb(sum, handle);
+			cb(sum);
 		}, 100);
 		window.setTimeout(function() {
 			window.clearInterval(handle);
@@ -83,16 +70,17 @@ function getLight(threshold, cb) {
 		}, 10000);
 	}
 
-	navigator.getUserMedia({
-		video: true
-	}, function(stream) {
-		if (window.URL) {
-			video.src = window.URL.createObjectURL(stream);
-			checkLight(stream);
-		} else {
-			video.src = stream; // Opera.
-		}
-	}, function() {});
-}
+	function getLight(threshold, cb) {
+		var video = document.getElementById('monitor');
+		var canvas = document.getElementById('lightMonitor');
+		var ctx = canvas.getContext('2d');
+		$('#shinelight').show().on('click', function() {
+			$('#light').addClass('artificialLight');
+			window.setTimeout(function() {
+				cb(null);
+			}, 1000);
+		});
+		checkCamera = cb;
+	}
 
-init();
+}());

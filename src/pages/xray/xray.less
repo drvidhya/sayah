@@ -1,0 +1,49 @@
+#xrayplace{
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	right: 4%;
+	bottom: 30%;
+	border: dashed 5px blue;
+	display: none;
+}
+
+#xrayscan{
+	position : absolute;
+	top : 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #0055FF;
+	opacity: 0.3;
+	-webkit-transform : translateX(-100%);
+	-webkit-transition: linear 2s;
+
+	&.done{
+		-webkit-transform : translateX(100%);
+	}
+}
+
+#xraypic{
+	position: absolute;
+	left: 35%;
+	width: 30%;
+	top : 10%;
+	box-shadow: 0 0 10px rgb(0, 0, 0, 0.3);
+	padding: 20px 20px;
+	-webkit-transform: rotateZ(0deg) scale(0);
+	-webkit-transition: 1s;
+	&.done{
+		-webkit-transform:  rotateZ(-10deg) scale(1);
+	}
+}
+
+#xrayposition{
+	position : absolute;
+	color: #F00;
+	opacity: 0.6;
+	top : 100px;
+	left: 100px;
+	width: 100px;
+	height: 300px;
+} 
