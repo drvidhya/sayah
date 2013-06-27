@@ -113,7 +113,6 @@ a.big-button:active {
   right: 4%;
   bottom: 30%;
   border: dashed 5px blue;
-  display: none;
 }
 #xrayscan {
   position: absolute;
@@ -124,23 +123,52 @@ a.big-button:active {
   background: #0055FF;
   opacity: 0.3;
   -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -o-transform: translateX(-100%);
+  transform: translateX(-100%);
   -webkit-transition: linear 2s;
+  -moz-transition: linear 2s;
+  -ms-transition: linear 2s;
+  -o-transition: linear 2s;
+  transition: linear 2s;
 }
 #xrayscan.done {
   -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
 }
 #xraypic {
   position: absolute;
+  text-align: center;
   left: 35%;
   width: 30%;
   top: 10%;
   box-shadow: 0 0 10px #000000;
   padding: 20px 20px;
   -webkit-transform: rotateZ(0deg) scale(0);
+  -moz-transform: rotateZ(0deg) scale(0);
+  -ms-transform: rotateZ(0deg) scale(0);
+  -o-transform: rotateZ(0deg) scale(0);
+  transform: rotateZ(0deg) scale(0);
   -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
 }
 #xraypic.done {
   -webkit-transform: rotateZ(-10deg) scale(1);
+  -moz-transform: rotateZ(-10deg) scale(1);
+  -ms-transform: rotateZ(-10deg) scale(1);
+  -o-transform: rotateZ(-10deg) scale(1);
+  transform: rotateZ(-10deg) scale(1);
+}
+#xraypic p {
+  margin: 10px 0 0 0;
+  font-size: 1.3em;
 }
 #xrayposition {
   position: absolute;

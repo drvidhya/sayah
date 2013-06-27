@@ -51,6 +51,8 @@ var app = (function() {
 				ratio, left;
 
 			return function(e) {
+				e.x = e.x || e.clientX;
+				e.y = e.y || e.clientY;
 				if (!ratio) {
 					ratio = {
 						x: $el.attr('width') / $el.width(),
@@ -78,7 +80,7 @@ var app = (function() {
 					for (var i = 0; i < imgData.data.length; i += 4) {
 						sum += (imgData.data[i] && 1);
 					}
-					console.log("Checking brushed ", sum, elName);
+					//console.log("Checking brushed ", sum, elName);
 					if (sum < threshold) {
 						cb();
 					} else {
