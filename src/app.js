@@ -51,6 +51,8 @@ var app = (function() {
 				ratio, left;
 
 			return function(e) {
+				e.x = e.x || e.clientX;
+				e.y = e.y || e.clientY;
 				if (!ratio) {
 					ratio = {
 						x: $el.attr('width') / $el.width(),
