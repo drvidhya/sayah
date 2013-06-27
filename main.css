@@ -114,6 +114,12 @@ a.big-button:active {
   bottom: 30%;
   border: dashed 5px blue;
 }
+#xrayplace div {
+  background: #ABCDEF;
+  opacity: 0.2;
+  width: 100%;
+  height: 100%;
+}
 #xrayscan {
   position: absolute;
   top: 0;

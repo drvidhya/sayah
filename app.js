@@ -106,4 +106,4 @@ var app = (function() {
 	};
 }());
 
-document.body.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+document.body.webkitRequestFullscreen && document.body.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
