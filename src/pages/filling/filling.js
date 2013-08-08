@@ -9,14 +9,14 @@
 	var helpCount = 1;
 	app.help(helpCount++);
 	app.setEvents('decay', app.eraseImage('decay'));
-	app.testImage('decay', 6000, function() {
+	app.testImage('decay', function() {
 		app.help(helpCount++);
 		$('#fill').show();
 		$('#decay').fadeOut();
 		$('#pot').show().addClass('pulsate').on('click', function() {
 			app.help(helpCount++);
 			app.setEvents('hole', app.eraseImage('hole'));
-			app.testImage('hole', 6000, function() {
+			app.testImage('hole', function() {
 				app.help(helpCount++);
 				$('#pot').hide();
 				$('#light').show().css('opacity', 0.1);
