@@ -7,6 +7,15 @@ var app = (function() {
 	}
 
 	return {
+		resetImage: function(elName) {
+			var el = document.getElementById(elName);
+			$(el).show();
+			var ctx = el.getContext('2d');
+			ctx.globalCompositeOperation = 'source-over';
+			ctx.clearRect(0, 0, el.width, el.height);
+			return this;
+		},
+
 		setImage: function(elName, src) {
 			var img = new Image();
 			img.src = src;
@@ -15,6 +24,7 @@ var app = (function() {
 				ctx.drawImage(img, 0, 0);
 				ctx.globalCompositeOperation = 'destination-out';
 			};
+			return this;
 		},
 
 		allCanvasToFS: function(elName) {
@@ -30,6 +40,7 @@ var app = (function() {
 				});
 			}
 			div.children('canvas').css('left', (document.width / 2 - canvas.width() / 2));
+			return this;
 		},
 
 		setEvents: function(elName, cb) {
@@ -41,6 +52,7 @@ var app = (function() {
 			el.addEventListener('mouseup', ignoreEvent, true);
 
 			el.addEventListener('pointermove', cb, true);
+			return this;
 
 		},
 
@@ -70,9 +82,10 @@ var app = (function() {
 			}
 		},
 
-		testImage: function(elName, threshold, cb) {
-			var el = document.getElementById(elName);
-			var ctx = el.getContext('2d');
+		testImage: function(elName, cb) {
+			var el = document.getElementById(elName),
+				ctx = el.getContext('2d'),
+				initial;
 			(function loop() {
 				window.setTimeout(function() {
 					var imgData = ctx.getImageData(0, 0, el.width, el.height);
@@ -80,8 +93,11 @@ var app = (function() {
 					for (var i = 0; i < imgData.data.length; i += 4) {
 						sum += (imgData.data[i] && 1);
 					}
-					//console.log("Checking brushed ", sum, elName);
-					if (sum < threshold) {
+					if (typeof initial === 'undefined') {
+						initial = sum;
+					}
+					console.log("Checking brushed ", sum, initial, sum / initial, elName);
+					if (sum / initial <= 0.10) {
 						cb();
 					} else {
 						loop();

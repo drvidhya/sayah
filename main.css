@@ -23,7 +23,7 @@ body {
   left: 0;
   position: absolute;
 }
-.confetti div.modal {
+div.modal {
   padding: 40px;
   border: SOLID 20px #5E832D;
   font-family: cursive;
@@ -32,10 +32,14 @@ body {
   font-size: 3em;
   text-align: center;
 }
-.confetti div.modal a {
+div.modal a {
   font-size: 20px;
   position: static;
   margin: 50px auto 10px;
+}
+div.modal span,
+div.modal small {
+  line-height: 1em;
 }
 #help {
   position: absolute;
