@@ -1,10 +1,10 @@
 (function() {
 	app.allCanvasToFS('.filling');
-	app.setImage('teeth', '../../img/teeth2.png?1');
-	app.setImage('decay', '../../img/teeth2-decay.png?1');
-	app.setImage('hole', '../../img/teeth2-hole.png?1');
-	app.setImage('fill', '../../img/teeth2-fill.png?1');
-	app.setImage('light', '../../img/teeth2-light.png?1');
+	app.setImage('teeth', 'img/teeth2.png?1');
+	app.setImage('decay', 'img/teeth2-decay.png?1');
+	app.setImage('hole', 'img/teeth2-hole.png?1');
+	app.setImage('fill', 'img/teeth2-fill.png?1');
+	app.setImage('light', 'img/teeth2-light.png?1');
 
 	var helpCount = 1;
 	app.help(helpCount++);
