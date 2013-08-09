@@ -1,7 +1,14 @@
 body {
   touch-action: none;
+  -webkit-overflow-scroll: none;
   -ms-touch-action: none;
   display: block;
+}
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: no-repeat center url('img/loading.gif');
 }
 .holder {
   width: 100%;
@@ -26,7 +33,7 @@ body {
 div.modal {
   padding: 40px;
   border: SOLID 20px #5E832D;
-  font-family: cursive;
+  font-family: arial;
   background-color: #C8E1A7;
   color: #3A7B2F;
   font-size: 3em;
@@ -109,6 +116,79 @@ a.big-button:active {
   transition-property: width height background-color font-size left top transform -webkit-transform color;
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
+}
+.intro .logo {
+  text-align: center;
+}
+.intro .logo .name {
+  margin: 40px 0 0 30px;
+  display: inline-block;
+}
+.intro .logo .mascot {
+  display: inline-block;
+  margin: 50px 0 0 0;
+}
+.intro .activities {
+  text-align: center;
+}
+.intro .activities img {
+  margin: 40px 0 0 30px;
+  display: inline-block;
+}
+.intro .activities .link-intro {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ABCDEF;
+  padding: 60px 20px 20px 40px;
+  border-top-left-radius: 200px;
+  font-family: cursive;
+  font-size: 2em;
+}
+.intro .activities .pills {
+  width: 70%;
+  padding: 0 15%;
+  margin: 60px 0 0 0;
+}
+.intro .activities .pills li {
+  width: 39%;
+  margin: 10px 5%;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #fce2c1;
+  box-shadow: inset 0px 1px 0px 0px #fce2c1;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25));
+  background: -moz-linear-gradient(center top, #ffc477 5%, #fb9e25 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+  background-color: #ffc477;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid #eeb44f;
+  display: inline-block;
+  color: #ffffff;
+  font-family: arial;
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #cc9f52;
+}
+.intro .activities .pills li:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477));
+  background: -moz-linear-gradient(center top, #fb9e25 5%, #ffc477 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+  background-color: #fb9e25;
+}
+.intro .activities .pills li:active {
+  position: relative;
+}
+.intro .activities .pills li a {
+  padding: 28px 33px;
+  display: block;
+  font-weight: bold;
+  color: #774905;
+  font-size: 0.8em;
+}
+.intro .activities .pills li a:hover {
+  text-decoration: none;
 }
 #xrayplace {
   position: absolute;

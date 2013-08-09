@@ -1,14 +1,5 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>Say-Ah : Brushing your teeth</title>
-	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap.css"/>
-	<link rel="stylesheet" type="text/css" href="../../lib/bootstrap/css/bootstrap-responsive.css"/>
-	<link rel="stylesheet" type="text/css" href="../../main.css"/>
-	<script type="text/javascript" src="../../lib/pointerevents.min.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-</head>
-<body>
+<script type="text/javascript" src = "pages/brushing/brushing.js?1"></script>
+<div class = "brushing">
 	<div class = "brushing holder clearfix" touch-action="none">
 		<canvas id = "teeth" width = '1260' height = '810'></canvas>
 		<canvas id = "plaque" width = '1260' height = '810'></canvas>
@@ -17,32 +8,32 @@
 	</div>
 	<div class = "step1 info-msg modal hide">
 		<span>Good Job !!</span>
-		<br/><br/>
+		<br/>
+		<br/>
 		<small>Now lets brush the upper teeth ...</small>
-		<a class = "big-button" href = "#" data-next= "2">Continue</a>
+		<a class = "big-button" data-next= "2">Continue</a>
 	</div>
 	<div class = "step2 info-msg modal hide">
 		<span>Fantastic !!</span>
-		<br/><br/>
-		<small>Lets clear clean up the lower teeth ...</small>
-		<a class = "big-button" href = "#" data-next = "3">Continue</a>
+		<br/>
+		<br/>
+		<small>Brush the lower teeth</small>
+		<a class = "big-button" data-next = "3">Continue</a>
 	</div>
 
 	<div class = "confetti hide">
 		<div class = "modal">
 			<span>Yay !! Good Job !!</span>
 			<br/>
-			<a class = "big-button" href = "brushing.html">Play Again</a>
-			<a class = "big-button" href = "../../index.html#list">Other Activities</a>
+			<a class = "big-button" href = "../../brushing.html">Play Again</a>
+			<a class = "big-button" href = "pages/intro/intro.html">Other Activities</a>
 		</div>
 		<audio id = "win">
-			<source src="../../img/win.mp3"/>
+			<source src="../../img/win.mp3?1"/>
 		</audio>
 	</div>
 	<audio id = "ouch">
-		<source src="../../img/ouch.wav"/>
+		<source src="../../img/ouch.wav?1"/>
 	</audio>
-	<script type="text/javascript" src = "../../lib/jquery.min.js"></script>
-	<script type="text/javascript" src = "../../app.js"></script>
-	<script type="text/javascript" src = "brushing.js"></script>
-</body>
+
+</div>

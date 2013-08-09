@@ -96,7 +96,7 @@ var app = (function() {
 					if (typeof initial === 'undefined') {
 						initial = sum;
 					}
-					console.log("Checking brushed ", sum, initial, sum / initial, elName);
+					//console.log("Checking brushed ", sum, initial, sum / initial, elName);
 					if (sum / initial <= 0.10) {
 						cb();
 					} else {
@@ -107,7 +107,8 @@ var app = (function() {
 		},
 
 		activityDone: function() {
-			document.getElementById("win").play();
+			var win = document.getElementById("win");
+			win && win.play();
 			$('.confetti').fadeIn();
 		},
 
@@ -122,4 +123,30 @@ var app = (function() {
 	};
 }());
 
-document.body.webkitRequestFullscreen && document.body.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+(function() {
+	$.ajaxSetup({
+		cache: true
+	});
+
+	$(document).on('click', 'a', function(e) {
+		var href = $(this).attr('href');
+		href && (document.location.hash = href);
+		e.preventDefault();
+	});
+
+	window.onload = window.onhashchange = function(){
+		$('body').load(document.location.hash.substring(1) + "?1", function(resp, status, xhr){
+			if (status == "error") {
+				alert("Page not found \n " + document.location.hash);
+				document.location.hash = 'pages/intro/intro.html';
+			}
+			$('.loading').remove();
+		}).append('<div class = "loading"></div>');
+	}
+
+	document.addEventListener('touchmove', function(e){
+		e.preventDefault();
+	}, true);
+
+	//(typeof document.body.webkitRequestFullscreen !== 'undefined') && document.body.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+}());
