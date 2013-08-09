@@ -1,7 +1,7 @@
 (function() {
 	app.allCanvasToFS('.xray');
 
-	app.setImage('teeth', '../../img/teeth3.png');
+	app.setImage('teeth', '../../img/teeth3.png?1');
 	document.getElementById("teeth").addEventListener('click', function(e) {
 		e.preventDefault();
 	}, true);

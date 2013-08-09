@@ -2,114 +2,22 @@
 <html>
 <head>
 	<title>Say-Ah</title>
-	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<style>
-		.pills {
-			width : 70%;
-			padding: 0 15%;
-		}
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-		.pills  li{
-			width: 20%;
-			margin: 10px 5%;
-			-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			box-shadow:inset 0px 1px 0px 0px #fce2c1;
-			background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
-			background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
-			filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
-			background-color:#ffc477;
-			-moz-border-radius:20px;
-			-webkit-border-radius:20px;
-			border-radius:20px;
-			border:1px solid #eeb44f;
-			display:inline-block;
-			color:#ffffff;
-			font-family:arial;
-			font-size:28px;
-			font-weight:bold;
-			padding:28px 33px;
-			text-decoration:none;
-			text-shadow:1px 1px 0px #cc9f52;
-			}.classname:hover {
-				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
-				background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
-				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
-				background-color:#fb9e25;
-			}.classname:active {
-				position:relative;
-			}
-		}
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap-responsive.css"/>
+	<link rel="stylesheet" type="text/css" href="main.css"/>
 
-		a {
-			font-weight: bold;
-			color : #774905;
-		}
-	</style>
+	<script type="text/javascript" src= "lib/pointerevents.min.js"></script>
+	<script type="text/javascript" src = "lib/jquery.min.js"></script>
+	<script type="text/javascript" src = "app.js"></script>
 </head>
 <body>
-	<div id = "logo" style = "text-align: center">
-		<img src = "img/logo.png" style = "margin: 40px 0 0 30px; display: inline-block"/>
-		<br/>
-		<img src = "img/mascot.jpg" style = "display: inline-block; margin: 50px 0 0 0"/>
-		<div class = "hide" style = "position: absolute; bottom: 0; right: 0; background-color: #ABCDEF; padding: 60px 20px 20px 40px; border-top-left-radius: 200px; font-family: cursive; font-size: 2em">
-			<a href = "pages/admin/admin.html">Admin</a>
-		</div>
-	</div>
-	<div class = "activities hide" id = "activities" style = "text-align: center">
-		<img src = "img/logo.png" style = "margin: 40px 0 0 30px; display: inline-block"/>
-		<br/>
-
-		<ul class = "unstyled pills" style = "margin: 60px 0 0 0;">
-			<li>
-				<a href = "pages/brushing/brushing.html">Brushing</a>
-			</li>
-			<li class = "disabled">
-				<a href = "#" class = "muted">Oral Exam</a>
-			</li>
-			<li>
-				<a href = "pages/xray/xray.html">Xray</a>
-			</li>
-			<li class = "disabled">
-				<a href = "#" class = "muted">Cleaning</a>
-			</li>
-			<li>
-				<a href = "pages/filling/filling.html">Filling</a>
-			</li>
-			<li class = "disabled">
-				<a href = "#" class = "muted">Extraction</a>
-			</li>
-			<li class = "disabled" style = "clear:both">
-				<a href = "#" class = "muted">Braces</a>
-			</li>
-			<li class = "disabled" style = "clear:both">
-				<a href = "#" class = "muted">Fluorides</a>
-			</li>
-
-		</ul>
-		<div style = "position: absolute; bottom: 0; right: 0; background-color: #ABCDEF; padding: 60px 20px 20px 40px; border-top-left-radius: 200px; font-family: cursive; font-size: 2em">
-			<a href = "javascript:home()">Home</a>
-		</div>
-	</div>
+	<a id = "intro" href = "pages/intro/intro.html">Loading</a>
 	<script type="text/javascript">
-		document.getElementById('logo').addEventListener('click', function(){
-			list();
-		});
-
-		function list(){
-			document.getElementById('logo').style.display = "none";
-			document.getElementById('activities').style.display = "block";
-		}
-
-		function home(){
-			document.getElementById('logo').style.display = "block";
-			document.getElementById('activities').style.display = "none";
-		}
-
-		var hash = document.location.hash;
-		if (hash === '#list'){
-			list();
-		}
+		$('#intro').click();
 	</script>
 </body>
 </html>
