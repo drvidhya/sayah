@@ -140,8 +140,13 @@ var app = (function() {
 				alert("Page not found \n " + document.location.hash);
 				document.location.hash = 'pages/intro/intro.html';
 			}
-		});
+			$('.loading').remove();
+		}).append('<div class = "loading"></div>');
 	}
+
+	document.addEventListener('touchmove', function(e){
+		e.preventDefault();
+	}, true);
 
 	//(typeof document.body.webkitRequestFullscreen !== 'undefined') && document.body.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
 }());

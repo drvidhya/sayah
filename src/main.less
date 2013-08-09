@@ -1,7 +1,15 @@
 body{
 	touch-action: none;
+	-webkit-overflow-scroll:none;
 	-ms-touch-action: none;
 	display: block;
+}
+
+.loading{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background : no-repeat center url('img/loading.gif');
 }
 
 .holder {
@@ -29,7 +37,7 @@ body{
 div.modal{
 	padding : 40px;
 	border : SOLID 20px #5E832D;
-	font-family: cursive;
+	font-family: arial;
 	background-color: #C8E1A7;
 	color : #3A7B2F;
 	font-size : 3em;

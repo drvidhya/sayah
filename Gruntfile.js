@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         files: [{
             expand: true,
             cwd: 'src/',
-            src: ['**/*.html', '**/*.js', '**/*.css'],
+            src: ['**/*.html', '**/*.js', '**/*.css', '**/*.appcache'],
             dest: 'dist/'
           }
         ]
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
       },
       pages: {
         tasks: ['copy:pages'],
-        files: ['src/**/*.html', 'src/**/*.js']
+        files: ['src/**/*.html', 'src/**/*.js', 'src/**/*.appcache']
       },
       img: {
         tasks: ['copy:img'],
