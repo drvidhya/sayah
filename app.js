@@ -130,12 +130,14 @@ var app = (function() {
 
 	$(document).on('click', 'a', function(e) {
 		var href = $(this).attr('href');
-		href && (document.location.hash = href);
+		if (href) {
+			(document.location.hash = href);
+		}
 		e.preventDefault();
 	});
 
-	window.onload = window.onhashchange = function(){
-		$('body').load(document.location.hash.substring(1) + "?1", function(resp, status, xhr){
+	window.onload = window.onhashchange = function() {
+		$('body').load(document.location.hash.substring(1) + "?1", function(resp, status, xhr) {
 			if (status == "error") {
 				alert("Page not found \n " + document.location.hash);
 				document.location.hash = 'pages/intro/intro.html';
@@ -144,7 +146,7 @@ var app = (function() {
 		}).append('<div class = "loading"></div>');
 	}
 
-	document.addEventListener('touchmove', function(e){
+	document.addEventListener('touchmove', function(e) {
 		e.preventDefault();
 	}, true);
 
