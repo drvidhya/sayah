@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html manifest="main.appcache1"/>
+<html/>
 <head>
 	<title>Say-Ah</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -18,7 +18,9 @@
 <body>
 	<a id = "intro" href = "pages/intro/intro.html">Loading</a>
 	<script type="text/javascript">
-		$('#intro').click();
+		if (!document.location.hash){
+			$('#intro').click();
+		}
 	</script>
 </body>
 </html>

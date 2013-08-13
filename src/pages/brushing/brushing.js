@@ -42,6 +42,11 @@
 		});
 	}
 
+	$('.play-again').on('click', function() {
+		window.location.reload();
+		return false;
+	});
+	
 	$('.info-msg a.big-button').on('click', function() {
 		playStep($(this).data('next'));
 		$('.info-msg').hide();
