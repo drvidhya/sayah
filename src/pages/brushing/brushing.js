@@ -47,7 +47,7 @@
 		return false;
 	});
 
-	$(document).on('click', '.info-msg a.big-button', function() {
+	$(document).on('click', '.info-msg .big-button', function() {
 		playStep($(this).data('next'));
 		$('.info-msg').hide();
 		$('.confetti').hide();

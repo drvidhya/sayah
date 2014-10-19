@@ -15,9 +15,6 @@
     "grunt-processhtml": "^0.3.3",
     "load-grunt-tasks": "^0.6.0"
   },
-  "dependencies": {
-    "grunt-contrib-concat": "^0.5.0"
-  },
   "description": "A simple game for kids to learn various dental procedures",
   "main": "Gruntfile.js",
   "scripts": {
