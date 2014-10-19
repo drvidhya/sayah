@@ -14,9 +14,9 @@
 	}
 
 	function drawTeeth(num) {
-		app.resetImage('teeth').setImage('teeth', 'img/teeth' + num + '.png?1');
-		app.resetImage('plaque').setImage('plaque', 'img/teeth' + num + '-plaque.png?1');
-		app.resetImage('food').setImage('food', 'img/teeth' + num + '-food.png?1');
+		app.resetImage('teeth').setImage('teeth', 'img/teeth' + num + '.png');
+		app.resetImage('plaque').setImage('plaque', 'img/teeth' + num + '-plaque.png');
+		app.resetImage('food').setImage('food', 'img/teeth' + num + '-food.png');
 	}
 
 	var max = $("#teeth").height() / 4;
