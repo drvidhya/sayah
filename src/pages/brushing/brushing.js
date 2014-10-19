@@ -42,17 +42,18 @@
 		});
 	}
 
-	$('.play-again').on('click', function() {
+	$(document).on('click', '.play-again', function() {
 		window.location.reload();
 		return false;
 	});
-	
-	$('.info-msg a.big-button').on('click', function() {
+
+	$(document).on('click', '.info-msg a.big-button', function() {
 		playStep($(this).data('next'));
 		$('.info-msg').hide();
 		$('.confetti').hide();
 	});
 
-	playStep(stepNum);
-
+	app.brushing = function() {
+		playStep(stepNum);
+	}
 }());

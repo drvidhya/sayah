@@ -56,6 +56,11 @@
 				text-decoration:none;
 				text-shadow:1px 1px 0px #cc9f52;
 
+				&.disabled{
+					background: none;
+					background-color: #ffc477;
+				}
+
 				&:hover {
 					background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
 					background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
@@ -73,9 +78,7 @@
 					font-weight: bold;
 					color : #774905;
 					font-size: 0.8em;
-					&:hover{
-						text-decoration:none;
-					}
+					text-decoration:none;
 				}
 			}
 		}

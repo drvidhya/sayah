@@ -1,7 +1,3 @@
-(function() {
-	console.log($('.link-activity-list, .link-intro'));
-	$('.link-activity-list, .link-intro').on('click', function() {
-		$('.logo').toggle();
-		$('.activities').toggle();
-	});
-}());
+$(document).on('click', '.link-activity-list, .link-intro', function() {
+	$('.logo, .activities').toggle();
+});

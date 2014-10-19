@@ -1,89 +1,122 @@
 module.exports = function(grunt) {
-
-  // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    connect: {
-      server: {
-        options: {
-          hostname: '0.0.0.0',
-          port: 8080,
-          base: "."
-        }
-      }
-    },
-
-    copy: {
-      pages: {
-        files: [{
-            expand: true,
-            cwd: 'src/',
-            src: ['**/*.html', '**/*.js', '**/*.css', '**/*.appcache'],
-            dest: 'dist/'
-          }
-        ]
-      },
-      img: {
-        files: [{
-            expand: true,
-            cwd: 'src/img/',
-            src: '**',
-            dest: 'dist/img/'
-          }
-        ]
-      },
-      lib: {
-        files: [{
-            expand: true,
-            cwd: 'lib/',
-            src: '**',
-            dest: 'dist/lib/'
-          }
-        ]
-      }
-    },
-
-    watch: {
+    concat: {
       less: {
-        tasks: ['less'],
-        files: ['src/**/*.less']
-      },
-      pages: {
-        tasks: ['copy:pages'],
-        files: ['src/**/*.html', 'src/**/*.js', 'src/**/*.appcache']
-      },
-      img: {
-        tasks: ['copy:img'],
-        files: ['src/img/**']
-      },
-      lib: {
-        tasks: ['copy:lib'],
-        files: ['lib/**']
+        src: ['src/**/*.less'],
+        dest: 'bin/main.less'
       }
     },
 
     less: {
-      options: {
-        concat: true
-      },
       main: {
-        src: 'src/**/*.less',
-        dest: 'dist/main.css'
+        options: {
+          compress: true
+        },
+        files: {
+          'bin/main.css': 'bin/main.less'
+        }
       }
-
     },
+
+    autoprefixer: {
+      less: {
+        src: 'bin/main.css'
+      }
+    },
+
+    uglify: {
+      js: {
+        files: {
+          'bin/main.js': ['lib/**/*.js', 'src/**/*.js']
+        }
+      }
+    },
+
+    processhtml: {
+      dev: {
+        options: {
+          strip: true,
+          data: {
+            scripts: grunt.file.expand('lib/**/*.js').concat(grunt.file.expand({
+              cwd: 'src'
+            }, '**/*.js')),
+          }
+        },
+        files: {
+          'bin/index.html': 'src/index.html'
+        }
+      },
+      dist: {
+        options: {
+          data: {
+            scripts: ['main.js'],
+            templates: grunt.file.expand({
+              cwd: 'src'
+            }, 'pages/**/*.html')
+          }
+        },
+        files: {
+          'bin/index.html': 'src/index.html',
+        }
+      }
+    },
+    copy: {
+      img: {
+        cwd: 'src',
+        expand: true,
+        src: ['img/**/*'],
+        dest: 'dist/',
+      }
+    },
+
+    inline: {
+      options: {
+        uglify: true,
+        tag: '',
+        cssmin: true
+      },
+      dist: {
+        src: ['bin/index.html'],
+        dest: ['dist/index.html']
+      }
+    },
+
     clean: {
-      dist: ['dist']
-    }
+      dist: ['bin', 'dist']
+    },
+
+    connect: {
+      dev: {
+        options: {
+          hostname: '*',
+          port: 9000,
+          base: ['.', 'bin', 'src'],
+          livereload: true,
+          useAvailablePort: true
+        }
+      }
+    },
+
+    watch: {
+      options: {
+        livereload: true,
+      },
+      less: {
+        tasks: ['css'],
+        files: ['src/**/*.less']
+      },
+      html: {
+        tasks: ['processhtml:dev'],
+        files: ['src/**/*.html']
+      }
+    },
   });
 
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('assemble-less');
-  grunt.loadNpmTasks('grunt-contrib-clean');
+  require('load-grunt-tasks')(grunt);
 
-  // Default task(s).
-  grunt.registerTask('default', ['clean', 'copy', 'less', 'connect', 'watch']);
+  grunt.registerTask('css', ['concat', 'less', 'autoprefixer']);
+  grunt.registerTask('dev', ['clean', 'css', 'processhtml:dev', 'connect', 'watch'])
+  grunt.registerTask('dist', ['clean', 'css', 'processhtml:dist', 'uglify', 'copy', 'inline']);
 
+  grunt.registerTask('default', ['dev']);
 };

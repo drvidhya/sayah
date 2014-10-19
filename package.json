@@ -2,10 +2,34 @@
   "name": "Say-Ah",
   "version": "0.0.1",
   "devDependencies": {
-    "grunt-contrib-connect": "~0.2.0",
-    "grunt-contrib-watch": "~0.3.1",
-    "grunt-contrib-copy": "~0.4.0",
-    "grunt-contrib-clean": "~0.4.0",
-    "assemble-less": "~0.4.8"
-  }
+    "grunt-autoprefixer": "^1.0.1",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-connect": "~0.8.0",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-inline": "^0.3.2",
+    "grunt-processhtml": "^0.3.3",
+    "load-grunt-tasks": "^0.6.0"
+  },
+  "dependencies": {
+    "grunt-contrib-concat": "^0.5.0"
+  },
+  "description": "A simple game for kids to learn various dental procedures",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drvidhya/sayah.git"
+  },
+  "author": "",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/drvidhya/sayah/issues"
+  },
+  "homepage": "https://drvidhya.github.io/sayah"
 }

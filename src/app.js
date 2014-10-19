@@ -123,32 +123,32 @@ var app = (function() {
 	};
 }());
 
-(function() {
-	$.ajaxSetup({
-		cache: true
-	});
-
-	$(document).on('click', 'a', function(e) {
-		var href = $(this).attr('href');
-		if (href) {
-			(document.location.hash = href);
-		}
-		e.preventDefault();
-	});
-
-	window.onload = window.onhashchange = function() {
-		$('body').load(document.location.hash.substring(1) + "?1", function(resp, status, xhr) {
-			if (status == "error") {
-				alert("Page not found \n " + document.location.hash);
-				document.location.hash = 'pages/intro/intro.html';
-			}
-			$('.loading').remove();
-		}).append('<div class = "loading"></div>');
+$(document).on('click', 'a', function(e) {
+	var href = $(this).attr('href');
+	if (href) {
+		(document.location.hash = href);
 	}
+	e.preventDefault();
+});
 
-	document.addEventListener('touchmove', function(e) {
-		e.preventDefault();
-	}, true);
+function getTemplate(src, cb) {
+	var template = $('script[type="text/template"][data-src="' + src + '"]');
+	if (template.length === 0) {
+		$.get(src, function(data) {
+			template = $('<script type="text/template">').attr('data-src', src).text(data).appendTo('body');
+			cb(data);
+		});
+	} else {
+		cb(template.text());
+	}
+}
 
-	//(typeof document.body.webkitRequestFullscreen !== 'undefined') && document.body.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-}());
+window.onload = window.onhashchange = function() {
+	getTemplate(document.location.hash.substring(1), function(template) {
+		$('#content').html(template);
+	});
+}
+
+document.addEventListener('touchmove', function(e) {
+	e.preventDefault();
+}, true);

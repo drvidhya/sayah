@@ -1,4 +1,4 @@
-(function() {
+app.xray = function() {
 	app.allCanvasToFS('.xray');
 
 	app.setImage('teeth', 'img/teeth3.png?1');
@@ -15,7 +15,9 @@
 		'left': teeth.width() * 0.328 + position.top,
 		'height': teeth.height() * 0.3,
 		'width': teeth.width() * 0.05
-	}).on('click', function() {
+	});
+
+	$(document).on('click', '#xrayplace', function() {
 		$('#xrayplace').hide();
 		app.help(helpCount++);
 		$(".xray-button").on('click', function() {
@@ -30,4 +32,4 @@
 			}, 2000);
 		});
 	});
-}());
+};

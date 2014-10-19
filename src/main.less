@@ -1,49 +1,48 @@
-body{
+body {
 	touch-action: none;
-	-webkit-overflow-scroll:none;
+	-webkit-overflow-scroll: none;
 	-ms-touch-action: none;
 	display: block;
+	margin: 0;
+	padding: 0;
 }
 
-.loading{
+.loading {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	background : no-repeat center url('img/loading.gif');
+	background: no-repeat center url('img/loading.gif');
 }
-
 .holder {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	position: absolute;
-	canvas{
+	canvas {
 		position: absolute;
 		top: 0;
 		left: 0;
 		padding: 0;
 	}
 }
-
-.confetti{
+.confetti {
 	background-image: url('img/confetti.gif');
 	width: 100%;
 	height: 100%;
-	top : 0;
+	top: 0;
 	left: 0;
 	position: absolute;
 }
-
-div.modal{
-	padding : 40px;
-	border : SOLID 20px #5E832D;
+div.modal {
+	padding: 40px;
+	border: SOLID 20px #5E832D;
 	font-family: arial;
 	background-color: #C8E1A7;
-	color : #3A7B2F;
-	font-size : 3em;
-	text-align : center;
-	a{
-		font-size : 20px;
+	color: #3A7B2F;
+	font-size: 3em;
+	text-align: center;
+	a {
+		font-size: 20px;
 		position: static;
 		margin: 50px auto 10px;
 	}
@@ -51,13 +50,12 @@ div.modal{
 		line-height: 1em;
 	}
 }
-
-#help{
+#help {
 	position: absolute;
-	bottom : 5px;
+	bottom: 5px;
 	text-align: center;
 	width: 100%;
-	li{
+	li {
 		display: none;
 		position: relative;
 		width: 60%;
@@ -70,47 +68,43 @@ div.modal{
 		line-height: 30px;
 		padding: 10px 0 10px 5%;
 		border-radius: 10px;
-		border : SOLID 1px #B8581B;
+		border: SOLID 1px #B8581B;
 		color: #B8581B;
 		display: none;
-		&:first-child{
+		&:first-child {
 			display: list-item;
 		}
 	}
 }
-
 a.big-button {
 	position: absolute;
-	top : -50px;
-	right : 20px;
-
-    color: rgba(255,255,255,1);
-    text-decoration: none;
-    background-color: rgba(219,87,5,1);
-    font-weight: 700;
-    font-size: 2em;
-    display: block;
-    padding: 24px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
-    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
-    box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
-    margin: 100px auto;
+	top: -50px;
+	right: 20px;
+	color: rgba(255, 255, 255, 1);
+	text-decoration: none;
+	background-color: rgba(219, 87, 5, 1);
+	font-weight: 700;
+	font-size: 2em;
+	display: block;
+	padding: 24px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0px 9px 0px rgba(219, 31, 5, 1), 0px 9px 25px rgba(0, 0, 0, .7);
+	-moz-box-shadow: 0px 9px 0px rgba(219, 31, 5, 1), 0px 9px 25px rgba(0, 0, 0, .7);
+	box-shadow: 0px 9px 0px rgba(219, 31, 5, 1), 0px 9px 25px rgba(0, 0, 0, .7);
+	margin: 100px auto;
 	width: 160px;
 	text-align: center;
-	
 	-webkit-transition: all .1s ease;
 	-moz-transition: all .1s ease;
 	-ms-transition: all .1s ease;
 	-o-transition: all .1s ease;
 	transition: all .1s ease;
-
-	&:active{
-		-webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-	    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-	    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-	    top : -54px;
+	&:active {
+		-webkit-box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, .9);
+		-moz-box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, .9);
+		box-shadow: 0px 3px 0px rgba(219, 31, 5, 1), 0px 3px 6px rgba(0, 0, 0, .9);
+		top: -54px;
 	}
 }
