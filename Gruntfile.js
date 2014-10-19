@@ -81,6 +81,18 @@ module.exports = function(grunt) {
       }
     },
 
+    manifest: {
+      generate: {
+        options: {
+          basePath: 'src',
+          network: ['http://*', 'https://*'],
+          timestamp: true
+        },
+        src: ['img/**/*'],
+        dest: 'dist/manifest.appcache'
+      }
+    },
+
     clean: {
       dist: ['bin', 'dist']
     },
@@ -116,7 +128,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('css', ['concat', 'less', 'autoprefixer']);
   grunt.registerTask('dev', ['clean', 'css', 'processhtml:dev', 'connect', 'watch'])
-  grunt.registerTask('dist', ['clean', 'css', 'processhtml:dist', 'uglify', 'copy', 'inline']);
+  grunt.registerTask('dist', ['clean', 'css', 'processhtml:dist', 'uglify', 'copy', 'inline', 'manifest']);
 
   grunt.registerTask('default', ['dev']);
 };
